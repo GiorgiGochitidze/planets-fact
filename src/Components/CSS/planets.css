@@ -1,9 +1,8 @@
 .container {
   width: 100%;
   height: auto;
-  display: grid;
-  grid-template-columns: auto auto;
-  margin-top: 110px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .planets-image-container {
@@ -14,6 +13,17 @@
   justify-content: center;
   align-items: center;
   padding-block: 30px;
+  margin: 57px 0px;
+  animation: rotateX 10s infinite linear;
+}
+
+@keyframes rotateX {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg)
+  }
 }
 
 .description-container {
@@ -84,4 +94,56 @@
   opacity: 75%;
   color: white;
   text-decoration: underline;
+}
+
+.details-container{
+  width: 100%;
+  height: 300px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  grid-template-columns: auto auto auto auto;
+}
+
+.detail-cards{
+  width: 235px;
+  height: 88px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.detail-cards p {
+  font-size: 12px;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 25px;
+  opacity: 50%;
+  letter-spacing: 1px;
+}
+
+.detail-cards h1{
+  font-family: "Antonio", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 51.76px;
+  letter-spacing: -1.5px;
+}
+
+@media screen and (max-width: 1115px) {
+  .details-container{
+    grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .details-container{
+    grid-template-columns: auto;
+  }
 }

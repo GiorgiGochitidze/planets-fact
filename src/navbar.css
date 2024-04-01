@@ -36,6 +36,7 @@ nav h2{
     font-style: normal;
     line-height: 25px;
     letter-spacing: 1px;
+    margin-right: 60px;
 }
 
 .planets-list p:hover{
