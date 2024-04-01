@@ -1,5 +1,7 @@
 import "./CSS/planets.css";
 
+// Import images for other planets as needed
+
 const Planets = ({
   imgUrl,
   selectedPlanet,
@@ -11,7 +13,16 @@ const Planets = ({
   revolutionTime,
   radius,
   avarageTemp,
+  setUrls,
+  setDescription,
+  planetInternalImages,
+  normalPlanetImages,
+  internalDescription,
+  normalDescription,
 }) => {
+  // Define a map of internal images for each planet
+
+
   return (
     <>
       <div className="container">
@@ -28,14 +39,23 @@ const Planets = ({
           <div className="overview-container">
             <button
               style={getButtonStyle(0, bgColor)}
-              onClick={() => handleButtonClick(0)}
+              onClick={() => {
+                  handleButtonClick(0);
+                  setUrls(normalPlanetImages[selectedPlanet])
+                  setDescription(normalDescription[selectedPlanet])
+              }}
             >
               <p>01</p>
               <p>OVERVIEW</p>
             </button>
             <button
               style={getButtonStyle(1, bgColor)}
-              onClick={() => handleButtonClick(1)}
+              onClick={() => {
+                handleButtonClick(1);
+                // Set the image URL for the second button based on the selected planet
+                setUrls(planetInternalImages[selectedPlanet]);
+                setDescription(internalDescription[selectedPlanet])
+              }}
             >
               <p>02</p>
               <p>INTERNAL STRUCTURE</p>
@@ -52,20 +72,20 @@ const Planets = ({
       </div>
       <div className="details-container">
         <div className="detail-cards">
-            <p>ROTATION TIME</p>
-            <h1>{rotationTime}</h1>
+          <p>ROTATION TIME</p>
+          <h1>{rotationTime}</h1>
         </div>
         <div className="detail-cards">
-            <p>REVOLUTION TIME</p>
-            <h1>{revolutionTime}</h1>
+          <p>REVOLUTION TIME</p>
+          <h1>{revolutionTime}</h1>
         </div>
         <div className="detail-cards">
-            <p>RADIUS</p>
-            <h1>{radius}</h1>
+          <p>RADIUS</p>
+          <h1>{radius}</h1>
         </div>
         <div className="detail-cards">
-            <p>AVERAGE TEMP</p>
-            <h1>{avarageTemp}</h1>
+          <p>AVERAGE TEMP</p>
+          <h1>{avarageTemp}</h1>
         </div>
       </div>
     </>

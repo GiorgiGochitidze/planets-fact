@@ -12,6 +12,12 @@ const Home = ({
   revolutionTime,
   radius,
   avarageTemp,
+  setUrls,
+  setDescription,
+  planetInternalImages,
+  normalPlanetImages,
+  internalDescription,
+  normalDescription,
 }) => {
   return (
     <main>
@@ -26,6 +32,12 @@ const Home = ({
         revolutionTime={revolutionTime}
         radius={radius}
         avarageTemp={avarageTemp}
+        setUrls={setUrls}
+        setDescription={setDescription}
+        planetInternalImages={planetInternalImages}
+        normalPlanetImages={normalPlanetImages}
+        internalDescription={internalDescription}
+        normalDescription={normalDescription}
       />
     </main>
   );
