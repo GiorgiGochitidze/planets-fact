@@ -31,7 +31,9 @@ const Navbar = ({ handlePlanetClick, PlanetsListOpacity, planetsList }) => {
               <p
                 key={index}
                 style={PlanetsListOpacity(index)}
-                onClick={() => handlePlanetClick(index)}
+                onClick={() => {
+                  handlePlanetClick(index)
+                }}
               >
                 {planet}
               </p>
@@ -49,13 +51,14 @@ const Navbar = ({ handlePlanetClick, PlanetsListOpacity, planetsList }) => {
       {dropbox && (
         <div className="dropbox-container">
           <div className="dropbox-card">
-          <div className="circle"></div>
             {planetsList.map((planet, index) => (
               
                 <p
                   key={index}
                   style={PlanetsListOpacity(index)}
-                  onClick={() => handlePlanetClick(index)}
+                  onClick={() => {handlePlanetClick(index)
+                  setDropbox(false)
+                  }}
                 >
                  ⚪{planet}⚪
                 </p>

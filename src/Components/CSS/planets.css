@@ -70,6 +70,8 @@
   flex-direction: column;
   gap: 20px;
   margin-top: 50px;
+  background-color: #070724;
+  z-index: 100;
 }
 
 .overview-container button {
@@ -194,6 +196,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
   .texts-container{
     width: 400px;
@@ -205,7 +208,7 @@
   .overview-container{
     position: absolute;
     top: 27px;
-    width: 100%;
+    width: 103%;
     height: 50px;
     flex-direction: row;
     justify-content: center;
@@ -272,5 +275,11 @@
   .description-container{
     margin-bottom: 50px;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .planets-images{
+    width: 90%;
   }
 }

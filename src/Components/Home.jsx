@@ -26,6 +26,7 @@ const Home = ({
   return (
     <main>
       <Planets
+        key={selectedPlanet} 
         bgColor={bgColor}
         handleButtonClick={handleButtonClick}
         getButtonStyle={getButtonStyle}
