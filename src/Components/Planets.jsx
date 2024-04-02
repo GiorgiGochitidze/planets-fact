@@ -95,7 +95,7 @@ const Planets = ({
               key={`${animationKey}-button-one`}
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
               style={getButtonStyle(0, bgColor)}
               onClick={() => {
                 handleButtonClick(0);
@@ -111,7 +111,7 @@ const Planets = ({
               key={`${animationKey}-button-two`}
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
               style={getButtonStyle(1, bgColor)}
               onClick={() => {
                 handleButtonClick(1);
@@ -127,7 +127,7 @@ const Planets = ({
               key={`${animationKey}-button-three`}
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 0.7 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
               style={getButtonStyle(2, bgColor)}
               onClick={() => {
                 handleButtonClick(2);
