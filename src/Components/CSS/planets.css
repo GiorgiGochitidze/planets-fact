@@ -3,18 +3,28 @@
   height: auto;
   display: flex;
   justify-content: space-around;
+  margin-top: 85px;
+  padding-inline: 30px;
+  margin-bottom: 100px;
 }
 
 .planets-image-container {
-  width: 715px;
+  width: 60%;
   height: auto;
   min-height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-block: 30px;
-  margin: 57px 0px;
+  /* margin: 170px 0px 0px 0px; */
+  position: relative;
+}
+
+.planets-images{
   animation: rotateX 10s infinite linear;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 20%;
 }
 
 @keyframes rotateX {
@@ -28,12 +38,14 @@
 
 .description-container {
   width: 400px;
-  height: 400px;
+  height: auto;
   font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   line-height: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
 .description-container h1 {
@@ -51,7 +63,7 @@
 }
 
 .overview-container {
-  width: 100%;
+  width: 400px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -103,13 +115,14 @@
   justify-content: center;
   align-items: center;
   gap: 30px;
-  flex-wrap: wrap;
   grid-template-columns: auto auto auto auto;
+  justify-items: center;
+  align-content: center;
 }
 
 .detail-cards{
-  width: 235px;
-  height: 88px;
+  width: 165px;
+  height: 68px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
@@ -136,14 +149,127 @@
   letter-spacing: -1.5px;
 }
 
+.geology-overlay{
+  position: absolute;
+  width: 120px;
+  height: 150px;
+  top: 320px;
+}
+
+.internal-structure::before{
+  content: "INTERNAL STRUCTURE";
+}
+
+.surface-geology::before{
+  content: "SURFACE GEOLOGY";
+}
+
+.zeroTwo::before{
+  content: '01';
+}
+
+.zeroThree::before{
+  content: '02';
+}
+
+.zeroOne::before{
+  content: '03';
+}
+
 @media screen and (max-width: 1115px) {
   .details-container{
     grid-template-columns: auto auto;
   }
 }
 
+@media screen and (max-width: 990px) {
+  .container{
+    flex-direction: column;
+  }
+
+  .description-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .texts-container{
+    width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .overview-container{
+    position: absolute;
+    top: 27px;
+    width: 100%;
+    height: 50px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    gap: 0;
+  }
+
+  .description-container{
+    text-align: center;
+  }
+
+  .overview-container button{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .internal-structure::before {
+    content: none; /* Hide the content before 740px */
+  }
+
+  .internal-structure::after{
+    content: 'STRUCTURE';
+  }
+
+  .surface-geology::before {
+    content: none; /* Hide the content before 740px */
+  }
+
+  .surface-geology::after{
+    content: 'SURFACE';
+  }
+
+  .zeroTwo::before{
+    content: none;
+  }
+  
+  .zeroThree::before{
+    content: none;
+  }
+  
+  .zeroOne::before{
+    content: none;
+  }
+
+  .planets-image-container{
+    width: 100%;
+  }
+
+}
+
 @media screen and (max-width: 650px) {
   .details-container{
     grid-template-columns: auto;
+    height: auto;
+  }
+
+  .description-container{
+    margin-bottom: 50px;
+    text-align: center;
   }
 }

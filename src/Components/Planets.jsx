@@ -1,6 +1,5 @@
 import "./CSS/planets.css";
-
-// Import images for other planets as needed
+import { useState } from 'react';
 
 const Planets = ({
   imgUrl,
@@ -17,55 +16,92 @@ const Planets = ({
   setDescription,
   planetInternalImages,
   normalPlanetImages,
+  planetsGeologyImages,
   internalDescription,
   normalDescription,
+  showGeology,
+  setShowGeology,
+  geologyDescription,
 }) => {
-  // Define a map of internal images for each planet
+  const [animationPaused, setAnimationPaused] = useState(false);
 
+  const pauseAnimation = () => {
+    setAnimationPaused(true);
+  };
+
+  const resumeAnimation = () => {
+    setAnimationPaused(false);
+  };
+
+  const toggleGeology = () => {
+    setShowGeology(!showGeology);
+  };
 
   return (
     <>
       <div className="container">
         <div className="planets-image-container">
-          <img src={imgUrl} alt="planets images" />
+          <img
+            src={imgUrl}
+            alt="planets images"
+            onMouseEnter={pauseAnimation}
+            onMouseLeave={resumeAnimation}
+            style={{ animationPlayState: animationPaused ? 'paused' : 'running' }}
+            className="planets-images"
+          />
+          {showGeology && (
+            <img
+              src={planetsGeologyImages[selectedPlanet]}
+              alt="planets geology images"
+              className="geology-overlay"
+            />
+          )}
         </div>
         <div className="description-container">
+          <div className="texts-container">
           <h1>{selectedPlanet}</h1>
           <p>{description}</p>
           <p>
             <span className="source">Source:</span>{" "}
             <span className="wiki">Wikipedia</span>
           </p>
+          </div>
           <div className="overview-container">
             <button
               style={getButtonStyle(0, bgColor)}
               onClick={() => {
-                  handleButtonClick(0);
-                  setUrls(normalPlanetImages[selectedPlanet])
-                  setDescription(normalDescription[selectedPlanet])
+                handleButtonClick(0);
+                setUrls(normalPlanetImages[selectedPlanet]);
+                setDescription(normalDescription[selectedPlanet]);
+                setShowGeology(false); // Reset showGeology state
               }}
             >
-              <p>01</p>
+              <p className="zeroOne"></p>
               <p>OVERVIEW</p>
             </button>
             <button
               style={getButtonStyle(1, bgColor)}
               onClick={() => {
                 handleButtonClick(1);
-                // Set the image URL for the second button based on the selected planet
                 setUrls(planetInternalImages[selectedPlanet]);
-                setDescription(internalDescription[selectedPlanet])
+                setDescription(internalDescription[selectedPlanet]);
+                setShowGeology(false); // Reset showGeology state
               }}
             >
-              <p>02</p>
-              <p>INTERNAL STRUCTURE</p>
+              <p className="zeroTwo"></p>
+              <p className="internal-structure"></p>
             </button>
             <button
               style={getButtonStyle(2, bgColor)}
-              onClick={() => handleButtonClick(2)}
+              onClick={() => {
+                handleButtonClick(2);
+                setDescription(geologyDescription[selectedPlanet]); // Update description accordingly
+                toggleGeology(); // Toggle the visibility of geology image
+                setUrls(normalPlanetImages[selectedPlanet])
+              }}
             >
-              <p>03</p>
-              <p>SURFACE GEOLOGY</p>
+              <p className="zeroThree"></p>
+              <p className="surface-geology"></p>
             </button>
           </div>
         </div>

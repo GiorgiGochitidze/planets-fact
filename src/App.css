@@ -10,6 +10,7 @@ body{
   background-image: url('./assets/images/background-stars.svg');
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden;
 }
 
 html{

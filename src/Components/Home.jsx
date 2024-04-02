@@ -18,6 +18,10 @@ const Home = ({
   normalPlanetImages,
   internalDescription,
   normalDescription,
+  planetsGeologyImages,
+  showGeology,
+  setShowGeology,
+  geologyDescription,
 }) => {
   return (
     <main>
@@ -38,6 +42,10 @@ const Home = ({
         normalPlanetImages={normalPlanetImages}
         internalDescription={internalDescription}
         normalDescription={normalDescription}
+        planetsGeologyImages={planetsGeologyImages}
+        showGeology={showGeology}
+        setShowGeology={setShowGeology}
+        geologyDescription={geologyDescription}
       />
     </main>
   );
