@@ -63,7 +63,6 @@ nav h2{
     display: flex;
     justify-content: center;
     z-index: 2;
-    backdrop-filter: blur(20px);
     top: 76px;
     overflow-y: scroll;
 }

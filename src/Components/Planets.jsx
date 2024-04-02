@@ -93,8 +93,8 @@ const Planets = ({
           <div className="overview-container">
             <motion.button
               key={`${animationKey}-button-one`}
-              initial={{ opacity: 0, x: 500 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: -300 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
               style={getButtonStyle(0, bgColor)}
               onClick={() => {
@@ -109,8 +109,8 @@ const Planets = ({
             </motion.button>
             <motion.button
               key={`${animationKey}-button-two`}
-              initial={{ opacity: 0, x: 500 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: -300 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5, delay: 0.6 }}
               style={getButtonStyle(1, bgColor)}
               onClick={() => {
@@ -125,8 +125,8 @@ const Planets = ({
             </motion.button>
             <motion.button
               key={`${animationKey}-button-three`}
-              initial={{ opacity: 0, x: 500 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: -300 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5, delay: 0.7 }}
               style={getButtonStyle(2, bgColor)}
               onClick={() => {

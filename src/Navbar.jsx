@@ -1,16 +1,17 @@
 import "./navbar.css";
 import menu from "./assets/menu.svg";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Navbar = ({ handlePlanetClick, PlanetsListOpacity, planetsList }) => {
   const [dropbox, setDropbox] = useState(false);
-  const [menuOpacity, setMenuOpacity] = useState(false)
+  const [menuOpacity, setMenuOpacity] = useState(false);
   const [bg, setBg] = useState(false);
 
   const toggleDropbox = () => {
     setDropbox(!dropbox);
     setBg(!bg); // Toggle the blur state
-    setMenuOpacity(!menuOpacity)
+    setMenuOpacity(!menuOpacity);
   };
 
   const headerBlur = {
@@ -18,28 +19,37 @@ const Navbar = ({ handlePlanetClick, PlanetsListOpacity, planetsList }) => {
   };
 
   const menuopacity = {
-    opacity: menuOpacity ? '50%' : '1'
-  }
+    opacity: menuOpacity ? "50%" : "1",
+  };
 
   return (
     <>
       <header style={headerBlur}>
         <nav>
-          <h2>THE PLANETS</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: -500 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            THE PLANETS
+          </motion.h2>
           <div className="planets-list">
             {planetsList.map((planet, index) => (
               <p
                 key={index}
                 style={PlanetsListOpacity(index)}
                 onClick={() => {
-                  handlePlanetClick(index)
+                  handlePlanetClick(index);
                 }}
               >
                 {planet}
               </p>
             ))}
           </div>
-          <img
+          <motion.img
+            initial={{ opacity: 0, y: -300 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             onClick={toggleDropbox}
             src={menu}
             alt="menu icon"
@@ -50,21 +60,25 @@ const Navbar = ({ handlePlanetClick, PlanetsListOpacity, planetsList }) => {
       </header>
       {dropbox && (
         <div className="dropbox-container">
-          <div className="dropbox-card">
+          <motion.div
+            initial={{ opacity: 0, x: -500 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="dropbox-card"
+          >
             {planetsList.map((planet, index) => (
-              
-                <p
-                  key={index}
-                  style={PlanetsListOpacity(index)}
-                  onClick={() => {handlePlanetClick(index)
-                  setDropbox(false)
-                  }}
-                >
-                 ⚪{planet}⚪
-                </p>
-              
+              <p
+                key={index}
+                style={PlanetsListOpacity(index)}
+                onClick={() => {
+                  handlePlanetClick(index);
+                  setDropbox(false);
+                }}
+              >
+                ⚪{planet}⚪
+              </p>
             ))}
-          </div>
+          </motion.div>
         </div>
       )}
     </>
